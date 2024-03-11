@@ -1,6 +1,6 @@
 <template>
   <v-sheet class="ma-2 pa-2">
-    <v-card class="product">
+    <v-card class="product" style="background-color:#1569C7">
       <v-img :src="props.productData.image" height="200px" cover />
       <br />
 
@@ -12,6 +12,8 @@
         <v-btn
           @click="goToProductPage(props.productData.id)"
           :disabled="productData.spaces === 0"
+          variant="elevated"
+          color="primary"
         >
           Add to lessons
         </v-btn>

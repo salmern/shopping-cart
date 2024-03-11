@@ -1,11 +1,6 @@
 <template>
   <div class="products-list">
-    <!-- <v-text-field
-      clearable
-      label="Label"
-      prepend-icon="$vuetify"
-      style="background-color: lightblue;"
-    ></v-text-field> -->
+ 
     <v-select
       v-model="selectedSortAttribute"
       :items="sortAttributes"
@@ -21,7 +16,7 @@
         v-for="product in sortedProducts"
         :key="product.id"
         cols="12"
-        sm="4"
+        sm="3"
       >
         <div class="product-card">
           <product-item
