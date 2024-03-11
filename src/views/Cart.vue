@@ -1,47 +1,52 @@
 <template>
-  <button @click="router.push({ name: 'Catalog' })">Back to catalog</button>
+  <button @click="router.push({ name: 'Catalog' })" style="color: red">
+    Go Back
+  </button>
   <div v-if="!store.cart.length" style="text-align: center">
-    <h1>Empty Cart ...</h1>
+    <h1>Successfully Deleted </h1>
   </div>
-  <div class="cart-items" v-else>
+  <div class="cart-items" v-else style="background-color: lightblue">
     <div class="cart-item" v-for="item in store.cart" :key="item.id">
+      <img :src="item.image" alt="image" width="80" height="80" />
       <div class="item-details">
-        <img :src="item.image" alt="image" />
         <span>Subject: {{ item.subject }}</span>
         <span>Location: {{ item.location }}</span>
         <span>Price: {{ item.price }}</span>
         <span>Space: {{ item.spaces }}</span>
-        <button @click="removeFromCart(item.id)">Remove</button>
+        <button @click="removeFromCart(item.id)" style="color: red;">X</button>
       </div>
     </div>
-
-    <div>
+    <div style="display: flex; flex-direction: column; align-items: center">
       <input
         type="text"
         class="form-control"
-        style="width: 300px"
+        style="width: 300px; margin-bottom: 20px"
         v-model="name"
         placeholder="Name"
         @input="validateCheckout"
-      /><br />
+      />
       <input
         type="text"
         class="form-control"
-        style="width: 300px"
+        style="width: 300px; margin-bottom: 20px"
         v-model="phone"
-        placeholder="Phone"
+        placeholder="Phone Number"
         @input="validateCheckout"
       />
-      <br />
+    </div>
+    <div style="display: flex; flex-direction: column; align-items: center">
       <button
         class="btn btn-primary"
         @click="checkout"
         :disabled="!isFormValid"
+        style="margin-top: 10px"
       >
         Checkout
       </button>
     </div>
   </div>
+
+
 </template>
 
 <script>

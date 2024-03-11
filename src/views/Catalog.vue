@@ -1,20 +1,30 @@
 <template>
   <div class="products-list">
-    <v-text-field
+    <!-- <v-text-field
       clearable
       label="Label"
       prepend-icon="$vuetify"
-    ></v-text-field>
+      style="background-color: lightblue;"
+    ></v-text-field> -->
+    <v-select
+      v-model="selectedSortAttribute"
+      :items="sortAttributes"
+      label="Sort By"
+    ></v-select>
+    <v-btn-toggle v-model="sortOrder" class="ma-2">
+      <v-btn value="asc">Ascending</v-btn>
+      <v-btn value="desc">Descending</v-btn>
+    </v-btn-toggle>
+
     <v-row no-gutters>
       <v-col
-        v-for="product in store.products"
+        v-for="product in sortedProducts"
         :key="product.id"
         cols="12"
         sm="4"
       >
         <div class="product-card">
           <product-item
-
             :product-data="product"
             @item-clicked="goToProductPage"
           />
@@ -25,8 +35,10 @@
 </template>
 
 <script>
-import { defineComponent } from "vue";
+import { ref, computed, defineComponent } from "vue";
 import ProductItem from "@/components/ProductItem.vue";
+// import { lessons } from "@/data/lessons";
+
 export default defineComponent({
   name: "CatalogView",
   components: {
@@ -44,6 +56,23 @@ const store = productsStore();
 const router = useRouter();
 
 const search = ref("");
+const sortAttributes = ["subject", "location", "price", "spaces"];
+const selectedSortAttribute = ref(sortAttributes[0]);
+const sortOrder = ref("asc");
+
+const sortedProducts = computed(() => {
+  const products = store.products;
+  const sorted = [...products].sort((a, b) => {
+    const attrA = a[selectedSortAttribute.value];
+    const attrB = b[selectedSortAttribute.value];
+    if (sortOrder.value === "asc") {
+      return attrA < attrB ? -1 : attrA > attrB ? 1 : 0;
+    } else {
+      return attrA > attrB ? -1 : attrA < attrB ? 1 : 0;
+    }
+  });
+  return sorted;
+});
 
 const goToProductPage = (id) => {
   router.push({ name: "ProductView", params: { id } });

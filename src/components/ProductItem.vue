@@ -13,7 +13,7 @@
           @click="goToProductPage(props.productData.id)"
           :disabled="productData.spaces === 0"
         >
-          Add to cart
+          Add to lessons
         </v-btn>
       </v-card-actions>
     </v-card>

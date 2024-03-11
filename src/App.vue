@@ -1,11 +1,11 @@
 <template>
   <header>
-    <v-toolbar title="Bello Rufa'i Booking Cart">
+    <v-toolbar color="primary" dark title="Idris Lessons Cart">
       <v-btn
         @click="router.push({ name: 'CartView' })"
-        color="primary"
+        color="lightblue"
         variant="elevated"
-        >Items in Cart: {{ store.cart.length }}
+        >Added lessons {{ store.cart.length }}
       </v-btn>
     </v-toolbar>
   </header>
