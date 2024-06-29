@@ -3,6 +3,7 @@
     <v-card class="product" style="background-color:#1569C7">
       <v-img :src="props.productData.image" height="200px" cover />
       <br />
+      <v-card-subtitle> {{ props.productData.subject }} </v-card-subtitle>
 
       <v-card-subtitle> Spaces {{ props.productData.spaces }} </v-card-subtitle>
       <br />

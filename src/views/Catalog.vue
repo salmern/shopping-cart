@@ -32,7 +32,7 @@
 <script>
 import { ref, computed, defineComponent } from "vue";
 import ProductItem from "@/components/ProductItem.vue";
-// import { lessons } from "@/data/lessons";
+
 
 export default defineComponent({
   name: "CatalogView",

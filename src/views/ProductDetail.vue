@@ -10,7 +10,7 @@
   <div class="product">
     <div class="product-image">
       <p>{{ selectedProduct.id }}</p>
-      <img :src="selectedProduct.image" alt="image" />
+      <img :src="selectedProduct.image" alt="image" width="100px" height="100px"/>
     </div>
     <div class="product-details">
       <p>Subject: {{ selectedProduct.subject }}</p>
@@ -52,7 +52,7 @@ const selectedProduct = computed(() => {
 const addToCart = () => {
   if (selectedProduct.value.spaces > 0) {
     store.addToCart(selectedProduct.value);
-    selectedProduct.value.spaces--; // Reduce the remaining space
+    selectedProduct.value.spaces--; 
   }
   router.push({ name: "CartView" });
 };
