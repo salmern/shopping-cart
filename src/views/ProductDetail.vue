@@ -50,9 +50,13 @@
   })
 
   const addToCart = () => {
-    store.addToCart(selectedProduct.value)
-    router.push({ name: 'CartView' })
+    if (selectedProduct.value.spaces > 0) {
+    store.addToCart(selectedProduct.value);
+    selectedProduct.value.spaces--; // Reduce the remaining space
   }
+  router.push({ name: "CartView" });
+};
+  
 </script>
 
 <style scoped>
