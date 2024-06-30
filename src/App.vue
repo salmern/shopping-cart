@@ -1,6 +1,6 @@
 <template>
   <header>
-    <v-toolbar title="Bello Rufa'i Booking Cart">
+    <v-toolbar title="Bello  Booking Cart">
       <v-btn
         @click="router.push({ name: 'CartView' })"
         color="primary"

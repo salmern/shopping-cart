@@ -36,7 +36,7 @@ export default defineConfig({
      
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'masked-icon.svg'],
       manifest: {
-        name: 'Bello Rufai PWA',
+        name: 'Bello  PWA',
         short_name: 'VuePWA',
         description: 'A Progressive Web App built with Vue',
         theme_color: '#ffffff',
