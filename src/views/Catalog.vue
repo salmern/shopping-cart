@@ -43,7 +43,7 @@ export default defineComponent({
 </script>
 
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, ref, computed } from "vue";
 import { productsStore } from "@/stores/products";
 import { useRouter } from "vue-router";
 
@@ -78,4 +78,14 @@ onMounted(async () => {
 });
 </script>
 
-<style scoped></style>
+<style scoped>
+.products-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start; /* Align items to the start (left) of the container */
+}
+
+.controls {
+  margin-bottom: 20px; /* Optional: Add some spacing between controls and product list */
+}
+</style>
