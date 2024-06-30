@@ -35,8 +35,8 @@ app.use(vuetify)
 
 app.mount('#app')
 
+
+
 import { registerSW } from 'virtual:pwa-register'
 
-if ('serviceWorker' in navigator) {
-  registerSW()
-}
+registerSW({ immediate: true })
