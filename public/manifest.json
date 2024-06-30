@@ -1,0 +1,23 @@
+{
+    "name": "Bello Rufai PWA",
+    "short_name": "VuePWA",
+    "description": "A Progressive Web App built with Vue",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4DBA87",
+    "icons": [
+      {
+        "src": "/img/icons/Schoola.png",
+        "sizes": "192x192",
+        "type": "image/png",
+        "purpose": "any"
+      },
+      {
+        "src": "/img/icons/Schoolb.png",
+        "sizes": "512x512",
+        "type": "image/png",
+        "purpose": "any"
+      }
+    ]
+  }
